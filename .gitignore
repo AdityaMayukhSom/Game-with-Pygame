@@ -2,3 +2,5 @@
 /temp
 /build
 /src/__pycache__
+highScore.txt
+.gitignore

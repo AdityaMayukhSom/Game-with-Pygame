@@ -19,7 +19,7 @@ snakeVelocityIncrement = 0.01
 eatingRadius: int = 5
 incrementScore: int = 10
 
-highScorePath = "temp/highScore.txt"
+highScorePath = "highScore.txt"
 successMusicPath = "assets/music/success.ogg"
 gameOverMusicPath = "assets/music/game_over.ogg"
 greetingImagePath = "assets/image/snake.jpg"

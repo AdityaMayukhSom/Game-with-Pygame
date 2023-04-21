@@ -22,12 +22,7 @@ class Window:
         # To control the time within the game
         self.clock = pygame.time.Clock()
 
-        self.font = pygame.font.SysFont("Arial", 20)
-        self.font_small = pygame.font.SysFont("Arial", 15)
-        self.font_big = pygame.font.SysFont("Arial", 30)
-        self.font_small_big = pygame.font.SysFont("Arial", 20)
-        self.font_big_big = pygame.font.SysFont("Arial", 40)
-        self.font_small_big_big = pygame.font.SysFont("Arial", 20)
+        self.font = pygame.font.SysFont("calibri", 40)
 
     def fillScreenWithColor(self, color):
         self.screen.fill(color)
