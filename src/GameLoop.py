@@ -4,7 +4,9 @@ import sys
 from Food import Food
 from Snake import Snake
 from Window import Window
-from environment import fps, white, red, black, eatingRadius, screenWidth, screenHeight
+from environment import fps, white, red, black
+from environment import screenWidth, screenHeight
+from environment import eatingRadius, highScorePath
 
 
 def isFoodEaten(snake: Snake, food: Food):
@@ -15,25 +17,20 @@ def isFoodEaten(snake: Snake, food: Food):
 def gameLoop(window: Window):
     snake = Snake()
     food = Food()
-
-    # Game specific variables
     # when this becomes true, we will ask whether he wants to quit the game or play another round
     gameOver = False
+    score, highScore = 0, 0
 
-    # fps = frame per second
-    score = 0
-    highScore = 0
-
-    if not os.path.exists("high_score.txt"):
-        with open("high_score.txt", "w") as f:
+    if not os.path.exists(highScorePath):
+        with open(highScorePath, "w") as f:
             f.write("0")
-
-    with open("high_score.txt", "r") as f:
-        highScore = int(f.read())
+    else:
+        with open(highScorePath, "r") as f:
+            highScore = int(f.read())
 
     while True:  # this loop is created so that the game window stays till the user exits it
         if gameOver:
-            with open("high_score.txt", "w") as f:
+            with open(highScorePath, "w") as f:
                 f.write(str(highScore))
             window.showGameOver()
             break

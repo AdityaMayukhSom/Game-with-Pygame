@@ -2,7 +2,8 @@ import pygame
 
 from Food import Food
 from Snake import Snake
-from environment import white, red, black
+from environment import white, red
+from environment import successMusicPath, gameOverMusicPath, greetingImagePath
 
 
 class Window:
@@ -36,7 +37,7 @@ class Window:
         self.screen.blit(textSurface, [x, y])
 
     def showGreetings(self):
-        greetingsImage = pygame.image.load("assets/snake.jpg")
+        greetingsImage = pygame.image.load(greetingImagePath)
         # convert alpha sets the image so that the game speed is not slowed down
         greetingsImage = pygame.transform.scale(greetingsImage, (self.width, self.height)).convert_alpha()
         self.screen.blit(greetingsImage, (0, 0))
@@ -61,9 +62,9 @@ class Window:
         pygame.draw.rect(self.screen, color, [food.x, food.y, Food.size, Food.size])
 
     def playSuccessMusic(self):
-        pygame.mixer.music.load("music/success.ogg")  # load the music
+        pygame.mixer.music.load(successMusicPath)  # load the music
         pygame.mixer.music.play()  # play the music
 
     def playGameOverMusic(self):
-        pygame.mixer.music.load("music/game_over.ogg")
+        pygame.mixer.music.load(gameOverMusicPath)
         pygame.mixer.music.play()

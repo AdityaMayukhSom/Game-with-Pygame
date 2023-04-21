@@ -15,6 +15,7 @@ async def main():
     window.showGreetings()
 
     while True:
+        window.clock.tick(fps)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -23,7 +24,6 @@ async def main():
                 gameLoop(window)
                 # if gameloop is running, no need to run the outer loop
                 window.clock.tick(0)
-        window.clock.tick(fps)
         await asyncio.sleep(0)
 
 
