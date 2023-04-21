@@ -42,6 +42,7 @@ class Window:
         self.screen.blit(greetingsImage, (0, 0))
         self.showTextOnScreen("Welcome to Snake Xenzia", red, 200, 150)
         self.showTextOnScreen("Press Spacebar to continue", red, 200, 200)
+        pygame.display.update()
 
     def showScore(self, score: int, highScore: int):
         self.showTextOnScreen("Score: " + str(score), red, 5, 5)  # printing score on screen
@@ -50,6 +51,7 @@ class Window:
     def showGameOver(self):
         self.screen.fill(white)
         self.showTextOnScreen("Game Over! Press Enter to Continue.", red, 150, 220)  # printing score on screen
+        pygame.display.update()
 
     def plotSnake(self, snake: Snake, color):
         for x, y in snake.list:

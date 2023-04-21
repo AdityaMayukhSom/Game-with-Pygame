@@ -16,4 +16,4 @@ snakeSize = size
 eatingRadius: int = 8
 incrementScore: int = 10
 
-fps: int = 30
+fps: int = 60

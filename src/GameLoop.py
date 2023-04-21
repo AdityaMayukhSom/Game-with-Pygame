@@ -18,7 +18,7 @@ def gameLoop(window: Window):
 
     # Game specific variables
     # when this becomes true, we will ask whether he wants to quit the game or play another round
-    game_over = False
+    gameOver = False
 
     # fps = frame per second
     score = 0
@@ -32,7 +32,7 @@ def gameLoop(window: Window):
         highScore = int(f.read())
 
     while True:  # this loop is created so that the game window stays till the user exits it
-        if game_over:
+        if gameOver:
             with open("high_score.txt", "w") as f:
                 f.write(str(highScore))
             window.showGameOver()
@@ -42,40 +42,34 @@ def gameLoop(window: Window):
             if event.type == pygame.QUIT:  # if exit button is pressed
                 pygame.quit()
                 sys.exit(0)
-
             if event.type == pygame.KEYDOWN:
                 snake.handleDirection(event.key)
 
         snake.slither()
+
         if isFoodEaten(snake, food):
-            window.playSuccessMusic()
-
             score += 10
-
+            window.playSuccessMusic()
             food.changePosition()
-            snake.increaseLength()
-
+            snake.handleFoodEaten()
             if score > highScore:
                 highScore = score
 
         window.fillScreenWithColor(white)
         window.showScore(score, highScore)
 
-        head = []
-        head.append(snake.x)
-        head.append(snake.y)
-        snake.list.append(head)
-
-        if len(snake.list) > snake.length:
-            snake.list.pop(0)
-
-        if head in snake.list[:-1] or snake.x < 0 or snake.x > screenWidth or snake.y < 0 or snake.y > screenHeight:
+        if (
+            snake.head in snake.list[:-1]
+            or snake.x < 0
+            or snake.x > screenWidth
+            or snake.y < 0
+            or snake.y > screenHeight
+        ):
             # if the snake collides with itself, i.e., coordinate of the head matches with any other element in the list
-            game_over = True
+            gameOver = True
             window.playGameOverMusic()
 
         window.plotFood(food, red)
         window.plotSnake(snake, black)
-
-        pygame.display.update()
         window.clock.tick(fps)
+        pygame.display.update()
