@@ -2,10 +2,11 @@ import sys
 import asyncio
 import pygame
 
-sys.path.append("src")
-from environment import fps, screenWidth, screenHeight, gameTitle
-from GameLoop import gameLoop
-from Window import Window
+sys.path.append('../')
+
+from src.environment import *
+from src.GameLoop import *
+from src.Window import *
 
 
 async def main():

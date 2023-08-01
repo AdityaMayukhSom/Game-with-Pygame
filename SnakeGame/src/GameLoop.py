@@ -1,6 +1,8 @@
 import os, pygame
 import sys
 
+# sys.path.append('src')
+# sys.path.append('../')
 from Food import Food
 from Snake import Snake
 from Window import Window
@@ -16,7 +18,7 @@ def isFoodEaten(snake: Snake, food: Food):
 # Creating game loop
 def gameLoop(window: Window):
     snake = Snake()
-    food = Food()
+    food = Food.Food()
     # when this becomes true, we will ask whether he wants to quit the game or play another round
     gameOver = False
     score, highScore = 0, 0
