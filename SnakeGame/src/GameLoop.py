@@ -18,7 +18,7 @@ def isFoodEaten(snake: Snake, food: Food):
 # Creating game loop
 def gameLoop(window: Window):
     snake = Snake()
-    food = Food.Food()
+    food = Food()
     # when this becomes true, we will ask whether he wants to quit the game or play another round
     gameOver = False
     score, highScore = 0, 0
@@ -30,14 +30,20 @@ def gameLoop(window: Window):
         with open(highScorePath, "r") as f:
             highScore = int(f.read())
 
-    while True:  # this loop is created so that the game window stays till the user exits it
+    while (
+        True
+    ):  # this loop is created so that the game window stays till the user exits it
         if gameOver:
             with open(highScorePath, "w") as f:
                 f.write(str(highScore))
             window.showGameOver()
             break
 
-        for event in pygame.event.get():  # this consists of all the activities we do with the mouse or keyboard
+        for (
+            event
+        ) in (
+            pygame.event.get()
+        ):  # this consists of all the activities we do with the mouse or keyboard
             if event.type == pygame.QUIT:  # if exit button is pressed
                 pygame.quit()
                 sys.exit(0)
