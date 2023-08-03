@@ -2,11 +2,11 @@ import sys
 import asyncio
 import pygame
 
-sys.path.append('../')
+sys.path.append("src")
 
-from src.environment import *
-from src.GameLoop import *
-from src.Window import *
+from environment import *
+from GameLoop import *
+from Window import *
 
 
 async def main():
@@ -21,7 +21,9 @@ async def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
-            elif event.type == pygame.KEYDOWN and (event.key == pygame.K_SPACE or event.key == pygame.K_RETURN):
+            elif event.type == pygame.KEYDOWN and (
+                event.key == pygame.K_SPACE or event.key == pygame.K_RETURN
+            ):
                 gameLoop(window)
                 # if gameloop is running, no need to run the outer loop
                 window.clock.tick(0)
