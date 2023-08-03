@@ -1,11 +1,10 @@
-# Snake Game - Python Implementation
+# Snake Game
 
 This is a simple Python implementation of the classic Snake Game using the Pygame library. The game allows players to control a snake and try to eat food while avoiding collisions with the snake's own body and the game window boundaries.
 
 ## Requirements
 
 - Python 3.x
-- Pygame library (install using `pip install pygame`)
 
 ## How to Play
 
