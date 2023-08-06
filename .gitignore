@@ -1,6 +1,6 @@
 /.vscode
 /temp
 /build
-/src/__pycache__
+/SnakeGame/src/__pycache__
 highScore.txt
 .gitignore
